@@ -27,14 +27,14 @@ paddle_b.goto(350, 0)
 
 #Ball
 ball = turtle.Turtle()
-ball.speed(0)
+ball.speed(-5)
 ball.shape("square")
 ball.color("white")
 ball.penup()
 ball.goto(0, 0)
   #Ball  movement
 ball.dx = 0.5
-ball.dy = 0.5
+ball.dy = -0.5
 
 #Game functions
   #Paddle A UP & DOWN functions
@@ -74,3 +74,27 @@ while True:
   #Move the ball
   ball.setx(ball.xcor() + ball.dx)
   ball.sety(ball.ycor() + ball.dy)
+  
+  #Border checking
+
+    #Top border
+  if ball.ycor() > 290:
+    ball.sety(290)
+    ball.dy *= -1
+
+    #Bottom border
+  if ball.ycor() < -290:
+    ball.sety(-290)
+    ball.dy *= -1
+
+    #Right border
+  if ball.xcor() > 390:
+    ball.goto(0,0)
+    ball.dx *= -1
+   
+   #Left border
+  if ball.xcor() < -390:
+    ball.goto(0,0)
+    ball.dx *= -1
+
+
