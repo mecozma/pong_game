@@ -7,6 +7,10 @@ wn.setup(width=800, height=600)
 wn.tracer(0)
 
 
+# Score
+score_a = 0
+score_b = 0
+
 # Paddle A
 paddle_a = turtle.Turtle()
 paddle_a.speed(0)
@@ -100,11 +104,19 @@ while True:
   if ball.xcor() > 390:
     ball.goto(0,0)
     ball.dx *= -1
+    score_a += 1
+    pen.clear()
+    pen.write(f"Player A: {score_a}  Player B: {score_b}", align="center", font=("Courier", 24, "normal"))
+
    
    #Left border
   if ball.xcor() < -390:
     ball.goto(0,0)
     ball.dx *= -1
+    score_b += 1
+    pen.clear()
+    pen.write(f"Player A: {score_a}  Player B: {score_b}", align="center", font=("Courier", 24, "normal"))
+
 
   #Paddle and ball collisions
     #Right paddle
